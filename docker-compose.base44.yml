@@ -1,0 +1,22 @@
+services:
+  web:
+    image: node:22-alpine
+    container_name: iraniman-web
+    working_dir: /app
+    # Install deps from the lockfile-less checkout, then start Vite dev with live reload
+    command: ["sh", "-ec", "npm install --no-audit --no-fund && exec npm run dev"]
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      # Bare pass-through so Vite allows the sandbox preview host
+      - __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS
+      - NODE_ENV=development
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/"]
+      interval: 15s
+      timeout: 5s
+      retries: 6
+      start_period: 90s
