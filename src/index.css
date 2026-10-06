@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  background-color: #f7f1f3;
+  color: #0b2d5b;
+}
+
+/* الگوی هندسی ظریف شمسه برای زمینه‌های تزئینی */
+.pattern-shamseh {
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 160, 23, 0.5) 0, rgba(212, 160, 23, 0.5) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+.pattern-shamseh-light {
+  background-image: radial-gradient(circle at 50% 50%, rgba(11, 45, 91, 0.4) 0, rgba(11, 45, 91, 0.4) 1px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #d4a017;
+  outline-offset: 2px;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  scrollbar-width: none;
+}
